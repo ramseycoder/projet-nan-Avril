@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>EasyFood</title>
+  <!-- Font Awesome -->
+   <link href="../public/bootstrap/css/font-awesome.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="../public/bootstrap/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../public/bootstrap/css/style.css" rel="stylesheet">
+  <script src="../public/bootstrap/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="validachat">   
+                        <!--Navbar -->
+            <div id="index">
+                    <nav class="mb-1 navbar navbar-expand-lg navbar-dark dark">
+                            <a class="navbar-brand" href="#">Bati <span>+</span></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                <a class="nav-link" href="/">Acceuil
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="features">bientôt</a>
+                                </li>
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">Nos services
+                                    </a>
+                                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                                        <a class="dropdown-item" href="plans&device"><i class="fa fa-list"></i>  Plans et devis de constructions</a>
+                                        <a class="dropdown-item active" href="#"><i class="fa fa-dollar"></i> Economiser sur vos dépenses</a>
+                                        <a class="dropdown-item" href="recrutement"><i class="fa fa-hands"></i> Recruter une main d'oeuvre experte</a>
+                                    </div>
+                                    </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="Quisommesnous">Qui sommes nous</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto nav-flex-icons">
+                                <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-user"></i>{{user.nom}} {{user.prenoms}}
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                            aria-labelledby="navbarDropdownMenuLink-333">
+                                            <a class="dropdown-item" href="profil_user">mon profil</a>
+                                            <a class="dropdown-item" href="achat_user">mes achats</a>
+                                            <a class="dropdown-item" href="deconnexion">deconnexion</a>
+                                        </div>
+                                        </li>
+                            </ul>
+                            </div>
+                        </nav>
+            </div>
+                <!--/.Navbar -->
+            <header style="background-image:url('../public/images/imagefondservice1.jpg')">
+                <h1>Economiser sur vos dépenses</h1>
+            </header>
+            <br>
+            <div class="contenu container-fluid">
+                    <h3>Veuillez valider votre achat svp</h3>
+                <div class="row contentProduit">
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <div class="infoArticle">
+                            <div class="row ">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <img src="../public/images/{{infos.image}}" class="img-fluid">
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    <div class="text-content">
+                                        <h4>{{infos.nom}}</h4>
+                                        <h5>{{infos.prix}} fcfa / unité </h5>
+                                        <p>{{infos.description}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12  col-sm-12s col-xs-12">
+                                    <div class="formulaire_achat">
+                                            <form method="post" action="achatmat">
+                                                <div class="form-group">
+                                                    <input type="hidden" name="typeForm" value="validationachat">
+                                                    <label>veuillez saisir la quantité que vous désirez</label>
+                                                    <input type="number" step="1" value="1" onkeyup=" let prix_u = $('#prix_unitaire').val(),nb_produit = $('#quantite').val();
+                                                    const somme = prix_u * nb_produit;
+                                                    $('#prix_total').val(somme + ' fcfa');" onchange=" let prix_u = $('#prix_unitaire').val(),nb_produit = $('#quantite').val();
+              const somme = prix_u * nb_produit;
+              $('#prix_total').val(somme + ' fcfa');" name="quantite" id="quantite" placeholder="Ex:10" class="form-control mb-form" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>prix total</label>
+                                                    <input type="text" name="prix_total" id="prix_total" value="" class="form-control mb-form">
+                                                </div>
+                                                <input type="hidden" name="prix_unitaire" id="prix_unitaire" value="{{infos.prix}}">
+                                                <input type="hidden" name="nom_produit" value="{{infos.nom}}">
+                                                <input type="hidden" name="id_user" value="{{user._id}}">
+                                                <input type="hidden" name="id_article" value="{{infos._id}}">
+                                                <div class="form-group">
+                                                    <label> Entrez le numéro de votre compte mobile - money </label>
+                                                    <input type="number" name="numero" min="0" required placeholder="ex:02025479 " name="number_payement" class="form-control">
+                                                </div>
+                                                <button type="submit" name="effectachat" class="btn btn-primary">validation</button>
+                                            </form>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="isSuccess">
+                    <p><span style="color: limegreen" class=" fa fa-check-circle"> </span> : votre achat a été effectué avec succès, vous saurez bientôt livré<br>
+                    <a href="achatmat">retourner à la page d'achat</a></p>
+            </div>
+            <div class="is_achat_exist">
+                    <p><span style="color: red" class="fa fa-warning"> </span> : vous avez déjà effectuer un achat pour se produit<br>
+                    veuillez <a href="achatmat" >retourner à la page d'achat </a> pour effectuer un nouvel achat.</p>
+            </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <img src="../public/images/logo2.png" class="img-responsive">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 infos">
+                    <h3>informations</h3>
+                    <ul>
+                        <li><a><i class="fa fa-twitter"></i> twitter</a></li><span>|</span>
+                        <li><a><i class="fa fa-facebook"></i> facebook</a></li><span>|</span>
+                        <li><a><i class="fa fa-google-plus"></i> Google plus</a></li><span>|</span>
+                        <li><a herf="maitlto:info@batiplus.com""><i class=" fa fa-envelope-o"></i> mail</a></li><span>|</span>
+                        <li><a><i class=" fa fa-phone"></i> 67163547</a></li><span>|</span>
+                        <li><a><i class=" fa fa-map-marker"></i> Abidjan-yop</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 extra">
+                        <h3>FAQ & QR</h3>
+                        <ul>
+                            <li><a><i class="fa fa-angle-right"></i> Foire aux Questions</a></li>
+                            <li><a><i class="fa fa-angle-right"></i> Conditions d'utilisation et cookies</a></li>
+                            <li><a><i class=" fa fa-angle-right"></i> Contactez notre service client en ligne</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <div class="logo"></div>
+    </footer>
+    </div>
+    <!-- fin footer -->
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../public/bootstrap/js/popper.min.js"></script>
+  <script src="../public/bootstrap/js/bootstrap.js"></script>
+  <script src="../public/bootstrap/js/mdb.min.js"></script>
+  {% if validachat %}
+  <style>
+      #validachat .contenu h3
+      {
+          display: block !important;
+      }
+      #validachat .formulaire_achat{
+          left: 0px !important;
+      }
+      #validachat form button{
+          top: 0px !important;
+      }
+      #validachat .contenu .infoArticle img{
+          display: inline-block !important;
+      }
+      #validachat .contenu .infoArticle .text-content
+      {
+          left: 0px !important;
+      }
+      #validation footer
+      {
+        display: block !important;
+      }
+  </style>
+  <script>
+      $('#validachat .isSuccess').animate({right: "+=500px"},1000).delay(7000).animate({right:"-=500px"},1000)
+  </script>
+  {% else %}
+      {% if novalidachat %}
+      <style>
+              #validachat .contenu h3
+              {
+                  display: block !important;
+              }
+              #validachat .formulaire_achat{
+                  left: 0px !important;
+              }
+              #validachat form button{
+                  top: 0px !important;
+              }
+              #validachat .contenu .infoArticle img{
+                    display: inline-block !important;
+                }
+                #validachat .contenu .infoArticle .text-content
+                {
+                    left: 0px !important;
+                }
+              #validation footer
+              {
+                  display: block !important;
+              }
+          </style>
+          <script>
+              $('#validachat .is_achat_exist').animate({right: "+=500px"},1000).delay(7000).animate({right:"-=500px"},1000)
+          </script>
+      {% else %}
+          <script src="../public/bootstrap/js/scripts.js"></script>
+      {% endif %}
+  {% endif %}
+  <script>
+      $(function(){
+          function calcul()
+          {
+              let prix_u = $('#prix_unitaire').val(),nb_produit = $('#quantite').val();
+              const somme = prix_u * nb_produit;
+              $('#prix_total').val(somme + ' fcfa');
+          }
+          calcul()
+      })
+</script>
+</body>
+</html>

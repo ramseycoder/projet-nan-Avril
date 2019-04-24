@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>EasyFood</title>
+  <!-- Font Awesome -->
+   <link href="../public/bootstrap/css/font-awesome.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="../public/bootstrap/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../public/bootstrap/css/style.css" rel="stylesheet">
+</head>
+<body style="background-image: url('../public/images/madiv.jpg');text-align: center">
+    <div id="connexion" class="container-fluid">
+    <div class="isNotUser">
+            <p><span style="color: red" class="fa fa-warning"></span>vous n'êtes pas inscrit sur notre  plateforme<br>
+            Veuillez vous <a href="inscription" class="firstLink> inscrire </a> ou avez-vous <a href="#" class="secondLink">oublier votre mot de passse</a>?.</p>
+        </div>
+     <a href="index.html" class="btn btn-primary"><i class="fa fa-arrow-left"></i></a> <h1>Connexion</h1>
+        <p>connectez a votre compte pour bénéficier de plus de privilèges</p>
+        <br><br>
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-8 offset-xs-2">
+                    <div class="formConnexion">
+                            <form action="" method="post">
+                                <input type="email" class="form-control md-form" required name="email" autofocus placeholder="veuillez saisir votre email svp">
+                                <input type="password" name="password" required id="" class="form-control md-form" placeholder="veullez saisir votre mot de passe svp"">
+                                <a href="inscription" class="help-block">pas encore de compte, créer en un ici</a>
+                                <button type="submit" class="btn btn-success" class="form-control md-form">connexion</button>
+                            </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+  <script src="../public/bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="../public/bootstrap/js/popper.min.js"></script>
+  <script src="../public/bootstrap/js/bootstrap.js"></script>
+  <script src="../public/bootstrap/js/mdb.min.js"></script>
+  <script src="../public/bootstrap/js/animation.js"></script>
+  {% if isNotUser %}
+  <style>
+#connexion h1
+{
+    display: block !important;
+ }
+ #connexion p
+ {
+     display: block !important;
+ }
+ #connexion form
+ {
+     margin-top: 0px;
+ }
+ #connexion .btn-primary
+ {
+    display: inline-block !important;
+ }
+  </style>
+  <script>
+    $('#connexion .isNotUser').animate({right:"+=500px"},1000).delay(5000).animate({right:"-=500px"},1000)
+  </script>
+  {% else %}
+  <script src="../public/bootstrap/js/scripts.js"></script>
+  {% endif %}
+</body>
+
+</html>

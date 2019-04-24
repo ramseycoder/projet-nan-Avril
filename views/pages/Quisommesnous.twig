@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>EasyFood</title>
+  <!-- Font Awesome -->
+   <link href="../public/bootstrap/css/font-awesome.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="../public/bootstrap/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../public/bootstrap/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="Quisommesnous">   
+                        <!--Navbar -->
+            <div id="index">
+                    <nav class="mb-1 navbar navbar-expand-lg navbar-dark dark">
+                            <a class="navbar-brand" href="#">Bati <span>+</span></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                <a class="nav-link" href="/">Acceuil
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="features">bientôt</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">Nos services
+                                    </a>
+                                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                                        {% if isConnect %}
+                                        <a class="dropdown-item" href="plans&device"><i class="fa fa-list"></i>  Plans et devis de constructions</a>
+                                        <a class="dropdown-item" href="achatmat"><i class="fa fa-dollar"></i> Economiser sur vos dépenses</a>
+                                        <a class="dropdown-item" href="recrutement"><i class="fa fa-hands"></i> Recruter une main d'oeuvre experte</a>
+                                        {% else %}
+                                        <a class="dropdown-item" href="#" onclick="$('#error_generale').animate({right:'+=500px'},1000).delay(5000).animate({right:'-=500px'},1000)"><i class="fa fa-list"></i>  Plans et devis de constructions</a>
+                                        <a class="dropdown-item" href="#" onclick="$('#error_generale').animate({right:'+=500px'},1000).delay(5000).animate({right:'-=500px'},1000)"><i class="fa fa-dollar"></i> Economiser sur vos dépenses</a>
+                                        <a class="dropdown-item" href="#" onclick="$('#error_generale').animate({right:'+=500px'},1000).delay(5000).animate({right:'-=500px'},1000)"><i class="fa fa-hands"></i> Recruter une main d'oeuvre experte</a>
+                                        {% endif %}
+                                    </div>
+                                    </li>
+                                <li class="nav-item active">
+                                <a class="nav-link" href="#">Qui sommes nous</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto nav-flex-icons">
+                                <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                </li>
+                                {% if isConnect %}
+                                <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-user"></i>{{user.nom}} {{user.prenoms}}
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                            aria-labelledby="navbarDropdownMenuLink-333">
+                                            <a class="dropdown-item" href="profil_user">mon profil</a>
+                                            <a class="dropdown-item" href="achat_user">mes achats</a>
+                                            <a class="dropdown-item" href="deconnexion">deconnexion</a>
+                                        </div>
+                                        </li>
+                                {% else %}
+                                <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-user"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                            aria-labelledby="navbarDropdownMenuLink-333">
+                                            <a class="dropdown-item" href="connexion"><i class="fa fa-sign-in"></i> Connexion</a>
+                                            <a class="dropdown-item" href="inscription"><i class="fa fa-group "></i> Inscription</a>
+                                        </div>
+                                        </li>
+                                {% endif %}
+                            </ul>
+                            </div>
+                        </nav>
+            </div>
+                <!--/.Navbar -->
+            <header style="background-image:url('../public/images/background2.jpg')">
+                <h1>Qui sommes nous</h1>
+
+            </header>
+            <br>
+            <div class="contenu container">
+                <p><b><i>Bati +</i></b> est une entreprise qui oeuvre dans le domaine de la construction,elle s'est fondé sur la cause de plusieurs problèmes qui minent le domaine de la construction immobilière<br>
+                Aujourd'hui elle est a une importance capital dans le domaine dans le quel elle est exerce, elle s'est faite remarquer par son incroyable force de frappe. Elle propose des services de qualitès qui permettront à n'importe  d'avoir toutes les cartes en main pour effectuer soit un achat, connaitre les bases de la consstruction d'un immeuble, etc....<br>
+                Ses sevices sont les suivants: 
+                <ul>
+                    <li><a href="">Plans et Devis de constructions</a></li>
+                    <li><a href="">Vente de maisons</a></li>
+                    <li><a href="">Economiser sur vos dépenses</a></li>
+                </ul></p><br>
+                <h3>Au front</h3>
+                <div class="container">
+                        <div class="row">
+                                <div  class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="blockImage">
+                                        <img src="../public/images/solar-panels-1794467_1280.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div  class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                     <div class="blockImage">
+                                        <img src="../public/images/steelworkers-1029665_1920.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div  class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="blockImage">
+                                        <img src="../public/images/working-1024382_1920.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div  class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="blockImage">
+                                        <img src="../public/images/solar-panels-1794467_1280.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                <div class="bouton">
+                    <a href="#" type="button" class="btn btn-secondary">voir plus d'images</a>
+                </div>
+            </div>
+            <div id="error_generale">
+                    <p><span style="color: red" class="fa fa-warning"></span> : vous devez vous connecter pour bénéficier de ce service<br>
+                    <a href="connexion">Connexion</a></p>
+                </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <img src="../public/images/logo2.png" class="img-responsive">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 infos">
+                    <h3>informations</h3>
+                    <ul>
+                        <li><a><i class="fa fa-twitter"></i> twitter</a></li><span>|</span>
+                        <li><a><i class="fa fa-facebook"></i> facebook</a></li><span>|</span>
+                        <li><a><i class="fa fa-google-plus"></i> Google plus</a></li><span>|</span>
+                        <li><a herf="maitlto:info@batiplus.com""><i class=" fa fa-envelope-o"></i> mail</a></li><span>|</span>
+                        <li><a><i class=" fa fa-phone"></i> 67163547</a></li><span>|</span>
+                        <li><a><i class=" fa fa-map-marker"></i> Abidjan-yop</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 extra">
+                        <h3>FAQ & QR</h3>
+                        <ul>
+                            <li><a><i class="fa fa-angle-right"></i> Foire aux Questions</a></li>
+                            <li><a><i class="fa fa-angle-right"></i> Conditions d'utilisation et cookies</a></li>
+                            <li><a><i class=" fa fa-angle-right"></i> Contactez notre service client en ligne</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <div class="logo"></div>
+    </footer>
+    </div>
+ 
+    <!-- fin footer -->
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../public/bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="../public/bootstrap/js/popper.min.js"></script>
+  <script src="../public/bootstrap/js/bootstrap.js"></script>
+  <script src="../public/bootstrap/js/mdb.min.js"></script>
+  <script src="../public/bootstrap/js/scripts.js"></script>
+</body>
+
+</html>

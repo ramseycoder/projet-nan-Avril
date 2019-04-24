@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>EasyFood</title>
+  <!-- Font Awesome -->
+   <link href="../public/bootstrap/css/font-awesome.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="../public/bootstrap/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../public/bootstrap/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="resultRecherche">   
+                        <!--Navbar -->
+            <div id="index">
+                    <nav class="mb-1 navbar navbar-expand-lg navbar-dark dark">
+                            <a class="navbar-brand" href="#">Bati <span>+</span></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                <a class="nav-link" href="/">Acceuil
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="features">bientôt</a>
+                                </li>
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">Nos services
+                                    </a>
+                                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                                        <a class="dropdown-item active" href="#"><i class="fa fa-list"></i>  Plans et devis de constructions</a>
+                                        <a class="dropdown-item" href="achatmat"><i class="fa fa-dollar"></i> Economiser sur vos dépenses</a>
+                                        <a class="dropdown-item" href="recrutement"><i class="fa fa-hands"></i> Recruter une main d'oeuvre experte</a>
+                                    </div>
+                                    </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="Quisommesnous">Qui sommes nous</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto nav-flex-icons">
+                                <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                </li>
+                               <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-user"></i>{{user.nom}} {{user.prenoms}}
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                            aria-labelledby="navbarDropdownMenuLink-333">
+                                            <a class="dropdown-item" href="profil_user">mon profil</a>
+                                            <a class="dropdown-item" href="achat_user">mes achats</a>
+                                            <a class="dropdown-item" href="deconnexion">deconnexion</a>
+                                        </div>
+                                        </li>
+                            </ul>
+                            </div>
+                        </nav>
+            </div>
+                <!--/.Navbar -->
+            <header style="background-image:url('../public/images/imagefondservice1.jpg')">
+                <h1>Plans et Devis de construction</h1>
+            </header>
+            <br>
+            <div class="contenu container">
+                <div class="content">
+                    <h3>informations relatives à la construction d'un {{infos.type}}</h3><br>
+                    <p>{{infos.description}}</p>
+                    <br>
+                    <div class="couts">
+                        <h4>coûts</h4>
+                        <p><span style="font-weight: bolder"><i class="fa fa-dollar"></i> Coût approximative de la construction : </span> {{infos.cout_construction}} fcfa</p>
+                        <p><span style="font-weight: bolder"><i class="fa fa-dollar"></i> Coût approximative de la main d'oeuvre : </span>{{infos.cout_maindeouvre}} fcfa</p>
+                    </div>
+                </div>
+                <div class="bouton"><button class="btn btn-primary showComment" onclick="$(this).hide();$('#resultRecherche .commentaires').css('display','block');$('#resultRecherche .commentaires').animate({bottom:'+=800px'},1000);$('#resultRecherche .hideComment').show();"><span class="fa fa-comments"></span> commentaires </button><button class="hideComment display-none btn btn-danger" onclick="$(this).hide();$('#resultRecherche .commentaires').animate({bottom:'-=800px'},1000,function(){$('#resultRecherche .commentaires').css('display','none')});$('#resultRecherche .showComment').show();"><span class="fa fa-remove"></span> fermer commentaires</button></div>
+                <div class="commentaires">
+                    <div class="addcomment"><a href="#" onclick="$(this).hide();$('#resultRecherche .Addcommentform').animate({bottom:'+=400px'},500)"><span class="fa fa-plus"></span> ajouter un commentaire</a></div>
+                   {% for comment in comments %}
+                    <div class="item">
+                       <h4>{{comment.nom_user}}</h4>
+                       <p>{{comment.commentaire}}</p>
+                   </div>
+                   {% endfor %}
+                </div>
+            </div>
+            <div class="Addcommentform">
+                    <h4>formulaie de commentaire</h4>
+                    <form method="post">
+                        <input type="hidden" name="typeForm" value="addcomment">
+                        <input type="hidden" name="type_bat" value="{{infos.type}}">
+                        <input type="hidden" name="nom_user" value="{{user.nom}} {{user.prenoms}}">
+                        <textarea name="message" class="form-control" placeholder="entrez votre commentaire ici">
+                        </textarea>
+                        <input type="submit" name="send" value="envoyer">
+                    </form>
+                </div>
+                <div class="isComment">
+                    <p><span style="color: limegreen" class="fa fa-check-circle"></span>commentaire réussi.</p>
+                </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <img src="../public/images/logo2.png" class="img-responsive">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 infos">
+                    <h3>informations</h3>
+                    <ul>
+                        <li><a><i class="fa fa-twitter"></i> twitter</a></li><span>|</span>
+                        <li><a><i class="fa fa-facebook"></i> facebook</a></li><span>|</span>
+                        <li><a><i class="fa fa-google-plus"></i> Google plus</a></li><span>|</span>
+                        <li><a herf="maitlto:info@batiplus.com""><i class=" fa fa-envelope-o"></i> mail</a></li><span>|</span>
+                        <li><a><i class=" fa fa-phone"></i> 67163547</a></li><span>|</span>
+                        <li><a><i class=" fa fa-map-marker"></i> Abidjan-yop</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 extra">
+                        <h3>FAQ & QR</h3>
+                        <ul>
+                            <li><a><i class="fa fa-angle-right"></i> Foire aux Questions</a></li>
+                            <li><a><i class="fa fa-angle-right"></i> Conditions d'utilisation et cookies</a></li>
+                            <li><a><i class=" fa fa-angle-right"></i> Contactez notre service client en ligne</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <div class="logo"></div>
+    </footer>
+    </div>
+ 
+    <!-- fin footer -->
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../public/bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="../public/bootstrap/js/popper.min.js"></script>
+  <script src="../public/bootstrap/js/bootstrap.js"></script>
+  <script src="../public/bootstrap/js/mdb.min.js"></script>
+  {% if setComment  %}
+  <style>
+      #resultRecherche .contenu .content h3
+      {
+          display: block !important;
+      }
+      #resultRecherche .contenu .content p
+      {
+          left: 0px !important;
+      }
+      #resultRecherche .contenu .content .couts
+      {
+          left: 0px !important;
+      }
+      #resultRecherche footer
+      {
+          display:block;
+      }
+  </style>
+  <script>
+      $(function(){
+          $('#resultRecherche .isComment').animate({right:"+=520px"},1000).delay(2000).animate({right:"-=520px"},1000)
+      })
+  </script>
+    <script>
+          $(function(){
+            $('#resultRecherche .contenu .bouton button.showComment').fadeIn(10);
+          })
+      </script>
+{% else %}
+<script src="../public/bootstrap/js/scripts.js"></script>
+{% endif %}
+</body>
+
+</html>

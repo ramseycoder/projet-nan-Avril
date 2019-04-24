@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>EasyFood</title>
+  <!-- Font Awesome -->
+   <link href="../public/bootstrap/css/font-awesome.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link href="../public/bootstrap/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../public/bootstrap/css/style.css" rel="stylesheet">
+</head>
+<body style="background-image: url('../public/images/background2.jpg');text-align: center">
+    <div id="inscription" class="container-fluid">
+        <div class="validSuccess">
+                <p class="firsttext"><span style="color: limegreen" class="fa fa-check-circle"></span> Inscription effectué avec succès</p>
+                <p class="secondtext">vous pouvez désormais vous <a href="connexion">connecter</a></p>
+            </div>
+            <div class="isExist">
+                    <p><span style="color: red" class="fa fa-warning"></span> l'utilisateur existe déjà.</p>
+                </div>
+     <a href="index.html" class="btn btn-primary"><i class="fa fa-arrow-left"></i></a> <h1>inscription</h1>
+        <p>Inscrivez vous et faites partie de notre très grande communauté</p>
+        <br><br>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-8 offset-xs-2">
+                <p class="error_P"></p>
+                <div class="formConnexion">
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" class="form-control md-form" id="nom" name="nom" required autofocus placeholder="veuillez saisir votre nom svp" onkeyup="veriformNom(this);" onblur="fermeboite(veriformNom(this))">
+                                            <input type="text" name="prenoms" id="prenoms" class="form-control md-form" required placeholder="veullez saisir vos prénoms svp" onkeyup="veriformPrenoms(this);" onblur="fermeboite(veriformPrenoms(this));">
+                                            <input type="email" name="email" id="email" class="form-control md-form" required placeholder="veuillez renseigner votre email svp" onkeyup="veriformEmail(this);" onblur="fermeboite(veriformEmail(this));">
+                                            <input type="number" name="contacts" id="contacts" class="form-control md-form" required placeholder="veuillez renseigner vos contacts svp" onkeyup="veriformNumber(this);" onblur="fermeboite(veriformNumber(this));">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <select name="job" class="form-control md-form" id="job" required>
+                                                    <option disabled selected>Sélectionnez votre fonction</option>
+                                                    <option value="entrepreneur">entrepreneur</option>
+                                                    <option value="agent immobilier">agent immobilier</option>
+                                                    <option value="personne lambda">une personne lambda</option>
+                                                </select>
+                                                <select name="sexe" class="form-control md-form" id="sexe" required>
+                                                        <option disabled selected>Sélectionne votre sexe</option>
+                                                        <option value="masculin">masculin</option>
+                                                        <option value="féminin">féminin</option>
+                                                </select>
+                                                <input type="password" id="p1" class="form-control md-form" required name="firstpassword" placeholder="Veuillez saisir un mot de passe" maxlength="16" minlength="8" onkeyup="veriformPassword(this);" onblur="fermeboite(veriformPassword(this));">
+                                                <input type="password" id="p2" class="form-control md-form" name="secondpassword" placeholder="confirmez le mot de passe que vous avez saisie" maxlength="16" minlength="8" onkeyup="veriformPasswordC('#p1','#p2');" onblur="fermeboite(veriformPasswordC('#p1','#p2'));">
+                                    </div>
+                                </div>
+                                <button type="reset" class="btn btn-danger">réinitialiser</button><button type="submit" class="btn btn-success" class="form-control md-form">connexion</button>
+                            </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+  <script src="../public/bootstrap/js/jquery-3.3.1.min.js"></script>
+  <script src="../public/bootstrap/js/popper.min.js"></script>
+  <script src="../public/bootstrap/js/bootstrap.js"></script>
+  <script src="../public/bootstrap/js/mdb.min.js"></script>
+  <script src="../public/bootstrap/js/animation.js"></script>
+  {% if isInscript %}
+  <script>
+      $('#inscription .validSuccess').animate({right:"+=330px"},1)
+  </script>
+  <style>
+#inscription h1
+ {
+     display: block !important;
+ }
+ #inscription p
+ {
+     display: block !important;
+ }
+ #inscription form
+ {
+     left: 0px !important;
+ }
+ #inscription form input,#inscription form select
+ {
+     display: inline-block !important;
+ }
+ #inscription form button
+ {
+     display: inline-block !important;
+ }
+ #inscription .btn-primary
+ {
+     display: inline-block !important;
+ }
+  </style>
+  {% else %}
+    {% if isExist %}
+    <script>
+            $('#inscription .isExist').animate({right:"+=500px"},1000).delay(5000).animate({right:"-=500px"},1000)
+        </script>
+        <style>
+      #inscription h1
+       {
+           display: block !important;
+       }
+       #inscription p
+       {
+           display: block !important;
+       }
+       #inscription form
+       {
+           left: 0px !important;
+       }
+       #inscription form input,#inscription form select
+       {
+           display: inline-block !important;
+       }
+       #inscription form button
+       {
+           display: inline-block !important;
+       }
+       #inscription .btn-primary
+        {
+            display: inline-block !important;
+        }
+        </style>
+    {% else %}
+        <script src="../public/bootstrap/js/scripts.js"></script>
+    {% endif %}
+{% endif %}
+  <script src="../public/bootstrap/js/fonctions.js"></script>
+</body>
+
+</html>
