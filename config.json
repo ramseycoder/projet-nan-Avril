@@ -1,0 +1,15 @@
+{
+  "rootApi" : "/",
+  "port" : "8080",
+  "db" : {
+    "host" :"localhost",
+    "database" :"easyfood_db",
+    "user":"root",
+    "password":""
+  },
+  "session" : {
+    "secret": "8384cad041069d05fdeeaf3bd280a317273e19069bf8c76f71174e01674578c6",
+    "resave" : false,
+    "saveUninitialized" : false
+  }
+}
